@@ -10,9 +10,9 @@ class LumenPO {
         this.addQuantity = page.locator("button:has(svg.lucide-plus)");
         this.addCart = page.getByRole('button', {name: 'Add to Cart'});
         this.signInLogo = page.locator('a[aria-label="Sign in"]');
-        this.username = page.locator('#identifier-field');
-        this.continue = page.getByRole('button', {name: 'Continue'})
-        this.password = page.locator('#password-field');
+        this.username = page.locator('input[type="email"]');
+        this.continue = page.getByRole('button', { name: 'Sign in' });
+        this.password = page.locator('input[type="password"]');
         this.checkout = page.getByRole('button', {name: 'Proceed to Checkout'});
         this.order = page.getByRole('button', { name: /place order/i });
 
@@ -45,10 +45,9 @@ class LumenPO {
 
     async signIn(){
         await this.signInLogo.click();
-        await this.username.fill("myounusbaig93@gmail.com");
-        await this.continue.nth(1).click();
-        await this.password.fill("Myounus@93");
-        await this.continue.first().click();
+        await this.username.fill("Testuser@gmail.com");
+        await this.password.fill("Mshahid@93");
+        await this.continue.click();
        
     
     }

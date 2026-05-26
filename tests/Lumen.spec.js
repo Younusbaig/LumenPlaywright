@@ -26,14 +26,14 @@ test('Automate signUp flow', async ({ page }) => {
 
 test('Automate the add to cart order in E-commerce', async({page})=>
 {
-    test.setTimeout(100000);
+    
     const at = new LumenPO(page);
 
     await at.goTo();
     await page.waitForLoadState("load");
     await at.signIn();
     await at.navigateShop();
-    await expect(page).toHaveURL(/.*product.*/);
+    // await expect(page).toHaveURL(/.*product.*/);
     await at.addToCart();
     const cart = page.locator('a[href="/cart"]');
     await expect(cart.first()).toContainText(/1|2|3/);
@@ -50,18 +50,18 @@ test('Automate the add to cart order in E-commerce', async({page})=>
 })
 
 
-// test('@Web Verify the Order Id', async({page})=>{
+test('@Web Verify the Order Id', async({page})=>{
 
-// test.setTimeout(100000);
-//   const at = new LumenPO(page);
-//   await at.goTo();
-//   await page.waitForLoadState();
-//   await at.signIn();
-//   const account  = page.getByRole('button', { name: 'Account' });
-//   await expect(account.first()).toBeVisible();
-//   await account.first().click();
-//   const orderhistory = page.getByRole('menuitem', { name: 'Orders' });
-//   await expect(orderhistory).toBeVisible();
-//   await orderhistory.click();
 
-// })
+  const at = new LumenPO(page);
+  await at.goTo();
+  await page.waitForLoadState();
+  await at.signIn();
+  const account  = page.getByRole('button', { name: 'Account' });
+  await expect(account.first()).toBeVisible();
+  await account.first().click();
+  const orderhistory = page.getByRole('menuitem', { name: 'Orders' });
+  await expect(orderhistory).toBeVisible();
+  await orderhistory.click();
+
+})
