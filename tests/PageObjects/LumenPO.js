@@ -6,9 +6,7 @@ class LumenPO {
         this.page = page;
         this.shop = page.getByRole('link', {name: 'Shop'});
         this.category = page.getByRole('link', {name: 'Ceramics'});
-        this.product = page.getByText('Raku Stoneware Mug');
-        this.addQuantity = page.locator("button:has(svg.lucide-plus)");
-        this.addCart = page.getByRole('button', {name: 'Add to Cart'});
+        this.product = page.getByText('Raku Stoneware Mug'); 
         this.signInLogo = page.locator('a[aria-label="Sign in"]');
         this.username = page.locator('input[type="email"]');
         this.continue = page.getByRole('button', { name: 'Sign in' });
@@ -32,11 +30,7 @@ class LumenPO {
 
     }
 
-    async addToCart(){
-        await this.addQuantity.click();
-        await this.addCart.click();
-
-    }
+    
 
     async placeOrder(){
         await this.order.click();
