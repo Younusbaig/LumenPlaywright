@@ -34,9 +34,7 @@ test('Automate the add to cart order in E-commerce', async({page})=>
     await at.signIn();
     await at.navigateShop()
     await page.waitForLoadState("load");
-    const addToCart = page.getByRole('button', { name: 'Add to Cart' });
-    await expect(addToCart).toBeVisible();
-    await addToCart.click();
+    await page.getByRole('button', { name: 'Add to Cart' }).click();
     const cart = page.locator('a[href="/cart"]');
     await expect(cart.first()).toContainText(/1|2|3/);
     await cart.first().click();
