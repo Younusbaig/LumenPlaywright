@@ -33,7 +33,6 @@ test('Automate the add to cart order in E-commerce', async({page})=>
     await page.waitForLoadState("load");
     await at.signIn();
     await at.navigateShop();
-    await page.waitForURL('**/product/raku-mug');
     const addToCart = page.getByRole('button', {name: 'Add to Cart'});
     await expect(addToCart).toBeVisible();
     await addToCart.click();
